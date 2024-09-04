@@ -60,7 +60,10 @@ const registerUser = asyncHandler(async (req, res) => {
   });
 
   //api/user
+     //    FOR ROUTE ---> /api/user?search=krishna
   const allUsers = asyncHandler(async(req,res) => {
+     
+        //const keyword = req.query;//it will have {search=krishna}
         const keyword=req.query.search ? {
           $or: [
             {name: { $regex: req.query.search, $options: "i"}},

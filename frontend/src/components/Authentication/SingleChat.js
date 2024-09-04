@@ -11,7 +11,8 @@ import io from "socket.io-client";
 import ScrollableChat from '../ScrollableChat';
 
 
-const ENDPOINT= "http://localhost:5000";
+// const ENDPOINT= "http://localhost:5000";
+const ENDPOINT = "https://chat-app-z4ld.onrender.com";
 var socket, selectedChatCompare;
 
 const SingleChat = ({fetchAgain, setFetchAgain }) => {

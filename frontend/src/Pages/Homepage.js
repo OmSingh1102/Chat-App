@@ -17,7 +17,7 @@ function Homepage() {
   const history = useHistory();
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("userInfo"));
+    const user = JSON.parse(localStorage.getItem("userInfo"));  //by this we are taking the values entered by user during login/signup
 
     if (user) history.push("/chats");
   }, [history]);

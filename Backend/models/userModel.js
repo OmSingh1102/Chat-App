@@ -19,7 +19,8 @@ const userSchema = mongoose.Schema(
   userSchema.methods.matchPassword = async function (enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
   };
-  
+
+  //to store password in hashed form
   userSchema.pre("save", async function (next) {
     if (!this.isModified) {
       next();
