@@ -10,6 +10,8 @@ import axios from 'axios';
 import io from "socket.io-client";
 import ScrollableChat from '../ScrollableChat';
 
+const api = "https://chat-app-z4ld.onrender.com";
+
 
 // const ENDPOINT= "http://localhost:5000";
 const ENDPOINT = "https://chat-app-z4ld.onrender.com";
@@ -37,7 +39,7 @@ const SingleChat = ({fetchAgain, setFetchAgain }) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `/api/message/${selectedChat._id}`,
+        `${api}/api/message/${selectedChat._id}`,
         config
       );
       setMessage(data);
@@ -99,7 +101,7 @@ const sendMessage = async (event) => {
         };
         setNewMessage(" ");
         const { data } = await axios.post(
-          `/api/message/`,
+          `${api}/api/message/`,
           {
             content: newMessage,
             chatId: selectedChat._id,

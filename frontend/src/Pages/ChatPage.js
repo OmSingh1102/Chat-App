@@ -4,11 +4,14 @@ import { useState, useEffect } from "react";
 import { ChatState } from "../Context/ChatProvider";
 import { Box } from "@chakra-ui/react";
 
+
+
 import ChatBox from './../components/Authentication/miscellaneous/ChatBox';
 
 import SideDrawer from "../components/Authentication/miscellaneous/SideDrawer";
 import MyChats from "../components/Authentication/miscellaneous/MyChats";
 
+const api = "https://chat-app-z4ld.onrender.com";
 const ChatPage = () => {
   const { user } = ChatState();
   const [fetchAgain, setFetchAgain] = useState(false);

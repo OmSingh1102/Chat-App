@@ -4,6 +4,7 @@ import { ChatState } from '../../../Context/ChatProvider';
 import axios from 'axios';
 import UserListItem from '../UserAvatar/UserListItem';
 import UserBadgeItem from '../UserAvatar/UserBadgeItem';
+const api = "https://chat-app-z4ld.onrender.com";
 
 const GroupChatModal = ({children}) => {
 
@@ -32,7 +33,7 @@ const GroupChatModal = ({children}) => {
         },
       };
 
-      const { data } = await axios.get(`/api/user?search=${search}`, config);
+      const { data } = await axios.get(`${api}/api/user?search=${search}`, config);
 
       setSearchResult(data);
       // console.log(searchResults);
@@ -67,7 +68,7 @@ const GroupChatModal = ({children}) => {
           };
     
           const { data } = await axios.post(
-            `/api/chat/group`,
+            `${api}/api/chat/group`,
             {
               name: groupChatName,
               users: JSON.stringify(selectedUsers.map((u) => u._id)),

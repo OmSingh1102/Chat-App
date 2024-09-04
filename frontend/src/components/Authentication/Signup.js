@@ -6,6 +6,7 @@ import { useToast } from "@chakra-ui/toast";
 import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router";
+const api = "https://chat-app-z4ld.onrender.com";
 
 
 const Signup = () => {
@@ -54,7 +55,7 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(
-        "/api/user",
+       `${api}/api/user`,
         {
           name,
           email,

@@ -4,10 +4,13 @@ import axios from "axios";
 import { Box, Button, Stack, useToast, Text } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 
+
+
 import ChatLoading from './../ChatLoading';
 import { getSender } from "../../../config/ChatLogics";
 import GroupChatModal from "./GroupChatModal";
 
+const api = "https://chat-app-z4ld.onrender.com";
 const MyChats = ({ fetchAgain }) => {
   const [loggedUser, setLoggedUser] = useState();
 
@@ -23,7 +26,7 @@ const MyChats = ({ fetchAgain }) => {
         },
       };
 
-      const { data } = await axios.get("/api/chat", config);
+      const { data } = await axios.get(`${api}/api/chat`, config);
       setChats(data);
     } catch (error) {
       toast({

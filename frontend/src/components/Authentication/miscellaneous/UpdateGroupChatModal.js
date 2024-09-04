@@ -6,6 +6,7 @@ import UserBadgeItem from '../UserAvatar/UserBadgeItem';
 import axios from 'axios';
 import UserListItem from '../UserAvatar/UserListItem';
 
+const api = "https://chat-app-z4ld.onrender.com";
 const UpdateGroupChatModal = ({fetchAgain,setFetchAgain,fetchMessages
 }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -46,7 +47,7 @@ const UpdateGroupChatModal = ({fetchAgain,setFetchAgain,fetchMessages
             },
           };
           const { data } = await axios.put(
-            "api/chat/groupadd",
+            `${api}api/chat/groupadd`,
             {
               chatId: selectedChat._id,
               userId: user1._id,
@@ -88,7 +89,7 @@ const UpdateGroupChatModal = ({fetchAgain,setFetchAgain,fetchMessages
             },
           };
           const { data } = await axios.put(
-            `/api/chat/groupremove`,
+            `${api}/api/chat/groupremove`,
             {
               chatId: selectedChat._id,
               userId: user1._id,
@@ -127,7 +128,7 @@ const UpdateGroupChatModal = ({fetchAgain,setFetchAgain,fetchMessages
           };
           // console.log(selectedChat._id);
           const { data } = await axios.put(
-            "api/chat/rename",
+            `${api}api/chat/rename`,
             {
               chatId: selectedChat._id,
               chatName: groupChatName,
@@ -168,7 +169,7 @@ const UpdateGroupChatModal = ({fetchAgain,setFetchAgain,fetchMessages
             },
           };
     
-          const { data } = await axios.get(`/api/user?search=${search}`, config);
+          const { data } = await axios.get(`${api}/api/user?search=${search}`, config);
     
           setSearchResults(data);
           // console.log(searchResults);
