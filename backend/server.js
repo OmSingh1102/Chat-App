@@ -1,5 +1,5 @@
 const express = require("express");
-
+import cors from "cors";
 const dotenv = require("dotenv");
 
 const { chats } = require("./data/data");
@@ -16,7 +16,7 @@ connectDB();
 const app = express();
 
 app.use(express.json());
-
+app.use(cors());
 
 app.get("/",(req,res) => {
     res.send("API is running Successfully");
@@ -35,7 +35,7 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000
 
-const server= app.listen(5000,console.log('Server Started on PORT ${PORT}'));
+const server= app.listen(5000,console.log(`Server Started on PORT ${PORT}`));
 
 const io = require("socket.io")(server, {
     pingTimeout: 60000,
