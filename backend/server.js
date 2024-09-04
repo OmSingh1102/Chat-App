@@ -1,7 +1,7 @@
 const express = require("express");
-import cors from "cors";
-const dotenv = require("dotenv");
 
+const dotenv = require("dotenv");
+const cors = require("cors")
 const { chats } = require("./data/data");
 const path = require('path')
 const userRoutes = require("./routes/userRoutes");
